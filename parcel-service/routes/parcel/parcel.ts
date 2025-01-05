@@ -10,7 +10,7 @@ export const parcel = api(
   },
   async (req: CreateParcelRequest) => {
     const parcelService = new ParcelService();
-    const parcel = parcelService.CreateParcel({ ...req });
+    const parcel = await parcelService.CreateParcel({ ...req });
     return {
       isError: false,
       parcel,

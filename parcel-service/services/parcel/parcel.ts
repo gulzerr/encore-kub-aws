@@ -9,7 +9,6 @@ export const parcelCreatedTopic = new Topic<ParcelEvent>("createParcel", {
 
 export class ParcelService {
   async CreateParcel(opts: CreateParcelRequest): Promise<Parcel> {
-    console.log("🚀 ~ ParcelService ~ CreateParcel ~ opts:", opts);
     const { merchant_id, customer_name, customer_phone } = opts;
     const parcel = await db.queryRow<Parcel>`
       INSERT INTO parcels (merchant_id, customer_name, customer_phone)
